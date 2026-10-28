@@ -1,34 +1,26 @@
 package sallergy.dev;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("main-task")
-@Scope("prototype")
+@Component("task")
+@Scope(value = "prototype", proxyMode = org.springframework.context.annotation.ScopedProxyMode.TARGET_CLASS)
 public class Task {
-    private final String name;
-    private final Long duration;
+
+    private String text;
+    private Integer duration;
 
     public Task() {
-        this.name = "Task";
-        this.duration = 60L;
+        this.text = "";
+        this.duration = 0;
     }
 
-    public String getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public Long getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "name='" + name + '\'' +
-                ", duration=" + duration +
-                '}';
-    }
 }

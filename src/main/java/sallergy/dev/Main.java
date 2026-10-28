@@ -4,9 +4,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("sallergy.dev");
-        Task task = context.getBean(Task.class);
-        Task task2 = context.getBean(Task.class);
-        System.out.println(task == task2);
-
+        TaskExecutor taskExecutor1 = (TaskExecutor) context.getBean(TaskExecutor.class);
+        taskExecutor1.PrintTask();
+        TaskExecutor taskExecutor2 = (TaskExecutor) context.getBean(TaskExecutor.class);
+        taskExecutor2.PrintTask();
     }
 }
