@@ -3,7 +3,7 @@ package sallergy.dev;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component("Manager-task")
+@Component("Manager-task")
 public class TaskManager {
 
     private Task task;
