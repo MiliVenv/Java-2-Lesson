@@ -3,9 +3,9 @@ package sallergy.dev;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("tskex")
+@Component
 public class TaskExecutor {
-    private Task task;
+    private final Task task;
 
     @Autowired
     public TaskExecutor(Task task) {
@@ -13,6 +13,6 @@ public class TaskExecutor {
     }
 
     public void PrintTask() {
-        System.out.println("Duration " + task.getDuration() + " Text: " + task.getText());
+        System.out.println("Duration " + task.getDuration() + " Name: " + task.getName());
     }
 }

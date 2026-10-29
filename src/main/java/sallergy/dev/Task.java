@@ -1,22 +1,36 @@
 package sallergy.dev;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("task")
-@Scope(value = "prototype", proxyMode = org.springframework.context.annotation.ScopedProxyMode.TARGET_CLASS)
+//@Scope("prototype")
 public class Task {
 
-    private String text;
+    private String name;
     private Integer duration;
 
-    public Task() {
-        this.text = "";
-        this.duration = 0;
+    public Task(@Value("${task.name}") String name, @Value("${task.duration}") Integer duration) {
+        this.name = name;
+        this.duration = duration;
+        System.out.println("call task constructor");
     }
 
-    public String getText() {
-        return text;
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("task postConstruct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("task preDestroy");
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Integer getDuration() {
