@@ -16,18 +16,18 @@ public class Task {
     public Task(@Value("${task.name}") String name, @Value("${task.duration}") Integer duration) {
         this.name = name;
         this.duration = duration;
-        System.out.println("call task constructor");
+//        System.out.println("call task constructor");
     }
 
-    @PostConstruct
-    public void postConstruct() {
-        System.out.println("task postConstruct");
-    }
-
-    @PreDestroy
-    public void preDestroy() {
-        System.out.println("task preDestroy");
-    }
+//    @PostConstruct
+//    public void postConstruct() {
+//        System.out.println("task postConstruct");
+//    }
+//
+//    @PreDestroy
+//    public void preDestroy() {
+//        System.out.println("task preDestroy");
+//    }
 
     public String getName() {
         return name;

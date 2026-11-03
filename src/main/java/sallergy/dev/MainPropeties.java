@@ -1,9 +1,11 @@
 package sallergy.dev;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class ConfigurationPropeties {
+@EnableAspectJAutoProxy
+public class MainPropeties {
 }
